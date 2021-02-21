@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AircraftInstrument"
+        xmlns:dronePatroller="clr-namespace:dronePatroller" xmlns:DemuxTS="clr-namespace:DemuxTS" x:Class="AircraftInstrument.MainWindow"
+        mc:Ignorable="d"
+        Title="UI Aircraft WPF" Height="501.572" Width="743.37">
+    <Grid Background="#FF1E1E1E">
+
+        <dronePatroller:JoyStick  PositionJoy="JoyStick_PositionJoy"  HorizontalAlignment="Left" Height="226" Margin="459,234,0,0" VerticalAlignment="Top" Width="263"/>
+
+        <DemuxTS:Compass x:Name="Compass" HorizontalAlignment="Left" Height="204" Margin="14,20,0,0" VerticalAlignment="Top" Width="204"/>
+        <DemuxTS:altimetre HorizontalAlignment="Left" Height="204" Margin="223,20,0,0" VerticalAlignment="Top" Width="216" Altitude="{Binding Value, ElementName=SdY_Altitude}"/>
+        <DemuxTS:horizon HorizontalAlignment="Left" Height="205" Margin="14,245,0,0" VerticalAlignment="Top" Width="213" Tanguage="{Binding Value, ElementName=SdY}" Roulis="{Binding Content, ElementName=LbXpos}"/>
+        <DemuxTS:variometre HorizontalAlignment="Left" Height="205" Margin="223,245,0,0" VerticalAlignment="Top" Width="223" DecifeetPm="{Binding Value, ElementName=SdY}"/>
+        <DemuxTS:anemometre HorizontalAlignment="Left" Height="204" Margin="459,20,0,0" VerticalAlignment="Top" Width="224" Vitesse="{Binding Value, ElementName=SdZ}"/>
+        <Label x:Name="LbXpos" Content="0" HorizontalAlignment="Left" Height="30" Margin="557,271,0,0" VerticalAlignment="Top" Width="44" Foreground="#FF5EE47C" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="Hidden"/>
+        <Label x:Name="LbYpos" Content="0" HorizontalAlignment="Left" Height="30" Margin="621,271,0,0" VerticalAlignment="Top" Width="44" Foreground="#FF5EE47C" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="Hidden"/>
+        <Label x:Name="LbZpos" Content="0" HorizontalAlignment="Left" Height="30" Margin="693,271,0,0" VerticalAlignment="Top" Width="44" Foreground="#FF5EE47C" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="Hidden"/>
+        <Slider x:Name="SdY" HorizontalAlignment="Left" Height="22" Margin="208,271,0,0" VerticalAlignment="Top" Width="172" Maximum="30" Minimum="-30" IsSnapToTickEnabled="True" Visibility="Hidden"/>
+        <Slider x:Name="SdZ" HorizontalAlignment="Left" Height="22" Margin="380,271,0,0" VerticalAlignment="Top" Width="172" Maximum="250" Visibility="Hidden"/>
+        <Slider x:Name="SdY_Altitude" HorizontalAlignment="Left" Height="22" Margin="208,249,0,0" VerticalAlignment="Top" Width="172" Maximum="20000" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="10" TickFrequency="10" Visibility="Hidden"/>
+
+    </Grid>
+</Window>
